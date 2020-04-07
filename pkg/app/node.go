@@ -60,7 +60,6 @@ func mount(n Node) error {
 		return t.mount()
 
 	case standardNode:
-		fmt.Printf("mounting %T: %p\n", n, n)
 		return t.mount()
 
 	case rawNode:
@@ -106,6 +105,8 @@ func replace(a, b UI) error {
 	}
 
 	parent := a.parent()
+	fmt.Printf("-- [parent] type: %s js-value: %p  \n", parent.nodeType(), parent.JSValue())
+
 	b.setParent(parent)
 	parent.(nodeWithChildren).replaceChild(a, b)
 

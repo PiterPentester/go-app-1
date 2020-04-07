@@ -52,8 +52,6 @@ func (e *elem) setParent(p UI) {
 }
 
 func (e *elem) dismount() {
-	fmt.Printf("%T %s being dismounter: %p\n", e, e.tag, e)
-
 	for _, c := range e.body {
 		c.dismount()
 	}
