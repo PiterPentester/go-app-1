@@ -238,8 +238,9 @@ func (e *elem) removeChildValue(child UI) {
 
 func (e *elem) replaceChildValue(old, new UI) {
 	fmt.Println("----- replaceChildValue -----")
-	fmt.Printf("old: %T %+v\n", old, old)
-	fmt.Printf("new: %T %+v\n", new, new)
+	fmt.Printf("old: %T \n", old)
+	fmt.Printf("new: %T \n", new)
+	fmt.Printf("value: %T %+v\n", e.value, e.value)
 
 	e.value.Call("replaceChild", new, old)
 }
