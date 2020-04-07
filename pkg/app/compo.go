@@ -137,7 +137,7 @@ func (c *Compo) mount(compo Composer) error {
 	c.root = root
 
 	if mounter, ok := compo.(Mounter); ok {
-		dispatcher(mounter.OnMount)
+		dispatcher(func() { mounter.OnMount() })
 	}
 
 	return nil
