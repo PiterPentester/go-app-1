@@ -55,13 +55,12 @@ func indirect(nodes ...Node) []UI {
 }
 
 func mount(n Node) error {
-	fmt.Printf("mounting %T: %p\n", n, n)
-
 	switch t := n.(type) {
 	case textNode:
 		return t.mount()
 
 	case standardNode:
+		fmt.Printf("mounting %T: %p\n", n, n)
 		return t.mount()
 
 	case rawNode:
